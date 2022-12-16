@@ -1,3 +1,6 @@
 from django.contrib import admin
+from rooms.models import Room, Image, Message
 
-# Register your models here.
+admin.site.register(Room)
+admin.site.register(Image)
+admin.site.register(Message)

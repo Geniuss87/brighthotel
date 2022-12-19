@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{% static 'css/flaticon.css' %}">
     <link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
   </head>
   <body>
 
@@ -34,9 +35,9 @@
           <li class="nav-item {%block home%} {%endblock%}"><a href="{%url 'index'%}" class="nav-link">Главная</a></li>
           <li class="nav-item {%block rooms%} {%endblock%}"><a href="{%url 'rooms'%}" class="nav-link">Номера</a></li>
           <li class="nav-item "><a href="services.html" class="nav-link">Сервисы</a></li>
-          <li class="nav-item"><a href="about.html" class="nav-link">О нас</a></li>
+          <li class="nav-item {%block about%} {%endblock%}"><a href="{%url 'about'%}" class="nav-link">О нас</a></li>
           <li class="nav-item"><a href="blog.html" class="nav-link">Блог</a></li>
-          <li class="nav-item"><a href="contact.html" class="nav-link">Контакты</a></li>
+          <li class="nav-item {%block contact%} {%endblock%}"><a href="{%url 'contact'%}" class="nav-link">Обратная связь</a></li>
         </ul>
       </div>
     </div>
@@ -144,6 +145,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
   <script src="{% static 'js/google-map.js' %}"></script>
   <script src="{% static 'js/main.js' %}"></script>
+
 
   </body>
 </html>

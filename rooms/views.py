@@ -12,6 +12,10 @@ class RoomsView(generic.ListView):
     template_name = "rooms.html"
     context_object_name = "rooms"
 
+    def get_queryset(self):
+        queryset = Room.objects.all().order_by('id')
+        return queryset
+
 
 class RoomSingleView(generic.DetailView):
     model = Room

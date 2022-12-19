@@ -7620,7 +7620,8 @@ textarea.form-control {
   background: #fc3c3c !important; }
 
 .site-section {
-  padding: 7em 0; }
+  padding: 7em 0 0 0;
+   }
 
 .ftco-bg-dark {
   background: #3c312e; }

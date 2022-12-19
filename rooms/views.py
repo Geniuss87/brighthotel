@@ -1,5 +1,7 @@
+from django.shortcuts import redirect, render
 from django.views import generic
 
+from rooms.forms import MessageForm
 from rooms.models import Room, Message
 
 
@@ -31,7 +33,19 @@ class AboutView(generic.TemplateView):
     template_name = "about.html"
 
 
-class ContactView(generic.CreateView):
-    model = Message
-    template_name = "contact.html"
-    context_object_name = "message"
+# class ContactView(generic.CreateView):
+#     model = Message
+#     template_name = "contact.html"
+#     context_object_name = "message"
+
+
+def send_msg(request):
+    form = MessageForm(request.POST or None)
+    if form.is_valid():
+        data = form.cleaned_data
+        Message.objects.create(name=data.get("name"),
+                               email=data.get("email"),
+                               subject=data.get("subject"),
+                               msg=data.get("msg"))
+        return redirect("index")
+    return render(request, "contact.html", locals())

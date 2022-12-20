@@ -20,3 +20,11 @@ class Image(models.Model):
     room = models.ForeignKey(Blog,
                              on_delete=models.CASCADE,
                              related_name="images")
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    text = models.TextField()
+    author = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    post = models.ForeignKey(Blog, on_delete=models.CASCADE, related_name="comment")

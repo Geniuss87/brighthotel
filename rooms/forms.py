@@ -1,6 +1,6 @@
 from django import forms
 
-from rooms.models import Room
+from rooms.models import Message
 
 
 # class MessageForm(forms.Form):
@@ -11,6 +11,6 @@ from rooms.models import Room
 
 class MessageForm(forms.ModelForm):
     class Meta:
-        model = Room
+        model = Message
         fields = '__all__'
 

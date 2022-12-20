@@ -40,12 +40,7 @@ class ContactView(generic.CreateView):
     form_class = MessageForm
 
     def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.name = form.cleaned_data['name']
-        self.object.email = form.cleaned_data['email']
-        self.object.subject = form.cleaned_data['subject']
-        self.object.msg = form.cleaned_data['msg']
-        self.object.save()
+        self.object = form.save()
         return super().form_valid(form)
 
     def get_success_url(self):

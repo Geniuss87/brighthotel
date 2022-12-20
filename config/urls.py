@@ -7,6 +7,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('rooms.urls')),
     path('blog/', include('blog.urls')),
+    path('auth/', include('authentication.urls')),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 

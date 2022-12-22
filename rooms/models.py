@@ -9,7 +9,7 @@ class Room(models.Model):
     size = models.PositiveSmallIntegerField()
     number = models.PositiveSmallIntegerField()
     bed_type = models.CharField(max_length=50)
-    created_add = models.DateTimeField(auto_now_add=True)
+    created_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.name}'
@@ -24,7 +24,7 @@ class Image(models.Model):
 
 class Message(models.Model):
     name = models.CharField(max_length=50)
-    email = models.CharField(max_length=50)
+    email = models.EmailField()
     subject = models.CharField(max_length=50)
     msg = models.TextField()
 

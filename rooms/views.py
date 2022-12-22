@@ -39,10 +39,6 @@ class ContactView(generic.CreateView):
     template_name = "contact.html"
     form_class = MessageForm
 
-    def form_valid(self, form):
-        self.object = form.save()
-        return super().form_valid(form)
-
     def get_success_url(self):
         return reverse_lazy("index")
 

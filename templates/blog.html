@@ -26,9 +26,9 @@
       {% for post in blog %}
         <div class="col-md-12 mb-4">
           <div class="block-3 d-md-flex">
-            <a class="image" href="{%url 'blog_single' post.id%}" style="background-image: url({{post.images.first.image.url}}); "></a>
+            <a class="image" href="{%url 'blog_single' post.id%}" style="background-image: url({{post.image.url}}); "></a>
             <div class="text">
-              <h2 class="heading"><a href="{%url 'blog_single' post.id%}">{{post.name}}</a></h2>
+              <h2 class="heading"><a href="{%url 'blog_single' post.id%}">{{post.title}}</a></h2>
               <p class="meta"><em>Дата:</em> <a href="">{{post.posted_date}}</a> <span class="sep">&bullet;</span> <em>Автор:</em> <a href="#">{{post.posted_by}}</a> </p>
               <p>{{post.text|truncatechars:50}}</p>
               <p><a href="{%url 'blog_single' post.id%}">Подробнее...</a></p>
@@ -37,12 +37,16 @@
         </div>
         {%endfor%}
       </div>
-
+      {% if user.is_staff %}
+        <div>
+          <a href="{% url 'post_create' %}" class="btn py-3 px-4 btn-primary">Добавить пост</a>
+        </div>
+      {%endif%}
       <div class="row mt-5">
                 <div class="col-md-12 pt-5">
                   <ul class="pagination custom-pagination">
                     <li class="page-item prev"><a class="page-link" href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
-                    <li class="page-item active"><a class="page-linkx href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
                     <li class="page-item"><a class="page-link" href="#">2</a></li>
                     <li class="page-item"><a class="page-link" href="#">3</a></li>
                     <li class="page-item next"><a class="page-link" href="#"><i class="icon-keyboard_arrow_right"></i></a></li>

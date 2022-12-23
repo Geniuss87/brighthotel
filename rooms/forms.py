@@ -1,6 +1,6 @@
 from django import forms
 
-from rooms.models import Message
+from rooms.models import Message, Booking
 
 
 # class MessageForm(forms.Form):
@@ -15,3 +15,8 @@ class MessageForm(forms.ModelForm):
         model = Message
         fields = '__all__'
 
+
+class BookingForm(forms.ModelForm):
+    class Meta:
+        model = Booking
+        fields = '__all__'

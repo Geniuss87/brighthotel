@@ -39,7 +39,7 @@
                   <li><strong>Площадь:</strong> {{room.size}}m<sup>2</sup></li>
                   <li><strong>Тип кровати:</strong> {{room.bed_type}}</li>
                 </ul>
-                 <p><a href="#" class="btn btn-primary py-3 px-5">Забронировать</a></p>
+                 <p><a href="{%url 'booking' room.id%}" class="btn btn-primary py-3 px-5">Забронировать</a></p>
               </div>
             </div>
           </div>

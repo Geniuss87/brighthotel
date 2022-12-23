@@ -25,21 +25,17 @@
             <div class="row">
 
               <div class="col-md-8">
-                <h2 class="mb-3">{{post.name}}</h2>
-                {%for i in post.images.all%}
-                <p><img src="{{i.image.url}}" alt="" class="img-fluid"></p>
-                {%endfor%}
+                <h2 class="mb-3">{{post.title}}</h2>
+                <p><img src="{{post.image.url}}" alt="" class="img-fluid"></p>
                 <p>{{post.text}}</p>
-
+                {% if user.is_staff %}
                 <div class="tag-widget post-tag-container mb-5 mt-5">
                   <div class="tagcloud">
-                    <a href="#" class="tag-cloud-link">Relax</a>
-                    <a href="#" class="tag-cloud-link">Hotel</a>
-                    <a href="#" class="tag-cloud-link">Luxury</a>
-                    <a href="#" class="tag-cloud-link">Unwind</a>
+                    <a href="{% url 'post_update' post.id%}" class="tag-cloud-link">Изменить</a>
+                    <a href="{% url 'post_delete' post.id%}" class="tag-cloud-link">Удалить</a>
                   </div>
                 </div>
-
+                {%endif%}
                  <div class="pt-5 mt-5">
                      <h4 class="mb-5">Комментарии</h4>
                    {%for comment in post.comments.all%}
@@ -79,16 +75,7 @@
                 </div>
 
               </div> <!-- .col-md-8 -->
-              <div class="col-md-4 sidebar">
-                <div class="sidebar-box">
-                  <form action="#" class="search-form">
-                    <div class="form-group">
-                      <span class="icon fa fa-search"></span>
-                      <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
-                    </div>
-                  </form>
-                </div>
-              </div>
+
 
             </div>
 

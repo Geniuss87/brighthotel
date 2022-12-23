@@ -30,3 +30,16 @@ class Message(models.Model):
 
     def __str__(self):
         return f'{self.subject}'
+
+
+class Booking(models.Model):
+    room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True, related_name="booking")
+    name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField()
+    phone = models.CharField(max_length=50)
+    checkin = models.DateField()
+    checkout = models.DateField()
+
+    def __str__(self):
+        return f'{self.room}: {self.checkin} - {self.checkout}'

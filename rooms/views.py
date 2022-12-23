@@ -2,8 +2,8 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from rooms.forms import MessageForm
-from rooms.models import Room, Message
+from rooms.forms import MessageForm, BookingForm
+from rooms.models import Room, Message, Booking
 
 
 class IndexView(generic.TemplateView):
@@ -42,13 +42,8 @@ class ContactView(generic.CreateView):
     def get_success_url(self):
         return reverse_lazy("index")
 
-# def send_msg(request):
-#     form = MessageForm(request.POST or None)
-#     if form.is_valid():
-#         data = form.cleaned_data
-#         Message.objects.create(name=data.get("name"),
-#                                email=data.get("email"),
-#                                subject=data.get("subject"),
-#                                msg=data.get("msg"))
-#         return redirect("index")
-#     return render(request, "contact.html", locals())
+
+class BookingView(generic.CreateView):
+    model = Booking
+    template_name = "booking.html"
+    form_class = BookingForm

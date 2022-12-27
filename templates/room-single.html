@@ -26,13 +26,11 @@
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12 mb-5">
-            
-            <div class="block-3 d-md-flex">
+                        <div class="block-3 d-md-flex">
               {%for i in room.images.all%}
               <div class="image" style="background-image: url({{i.image.url}}); "></div> {%endfor%}
                 <div class="text">
                 <h2 class="heading">{{room.name}}</h2>
-                <p><a href="#" class="btn btn-primary py-3 px-5">Забронировать</a></p>
                <div class="price"><sup>$</sup><span class="number">{{room.price}}</span><sub>/в сутки</sub></div>
                 <ul class="specs">
                   <li><strong>Категория:</strong> {{room.type}}</li>
@@ -40,10 +38,11 @@
                   <li><strong>Тип кровати:</strong> {{room.bed_type}}</li>
                   <li><strong>Описание:</strong> {{room.description}}</li>
                 </ul>
-
-
+                    <p><a href="{%url 'booking' room.id%}" class="btn btn-primary py-3 px-5">Забронировать</a></p>
               </div>
             </div>
+
+
 
           </div>
 

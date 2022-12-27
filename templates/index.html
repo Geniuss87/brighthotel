@@ -49,20 +49,21 @@
         <div class="col-md-12">
 
           <div class="block-32">
-            <form action="{%url 'rooms' %}">
+            <form action="{%url 'booking_room' %}" method="POST">
+              {%csrf_token%}
               <div class="row">
                 <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                   <label for="checkin_date">Заезд</label>
                   <div class="field-icon-wrap">
-                    <div class="icon"><span class="icon-calendar"></span></div>
-                    <input type="text" id="checkin_date" class="form-control">
+                    <div class="icon"><span class=""></span></div>
+                    <input type="date" name="checkin_date" class="form-control" >
                   </div>
                 </div>
                 <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
                   <label for="checkout_date">Выезд</label>
                   <div class="field-icon-wrap">
-                    <div class="icon"><span class="icon-calendar"></span></div>
-                    <input type="text" id="checkout_date" class="form-control">
+                    <div class="icon"><span class=""></span></div>
+                    <input type="date" name="checkout_date" class="form-control">
                   </div>
                 </div>
 

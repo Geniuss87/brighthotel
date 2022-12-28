@@ -23,18 +23,18 @@
 
 ## Настройка
 Создайте файл .env и добавьте следующие настройки:   
-`SECRET_KEY=django-insecure-@jysfta(f(6o4$^$xe)ukm)3p16)xqy$#p350_0rz^vb9g_b(3`   
+`SECRET_KEY={секретный ключ}`     
 `DEBUG=True`   
 `ALLOWED_HOSTS=127.0.0.1, localhost`   
 `ENGINE=django.db.backends.postgresql`   
-`NAME=hotel_db`   
-`USR=postgres`   
-`PASSWORD=postgres`   
+`NAME={имя базы данных}`   
+`USR={логин к postgres}`   
+`PASSWORD={пароль к postgres}`   
 `HOST=127.0.0.1`   
 `PORT=5432`   
 
 ## Создание и наполнение базы данных
-- Создайте в postgres базу данных hotel_db
+- Создайте в postgres базу данных {имя базы данных}
 
 - Сделайте миграцию выполнив следующие команды:
 
